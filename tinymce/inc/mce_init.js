@@ -1,0 +1,42 @@
+tinyMCE.init({
+mode                             : '<%mode%>',
+elements                         : '<%elements%>',
+language                         : '<%language%>',
+
+theme                            : 'advanced',
+skin                             : '<%skin%>',
+skin_variant                     : '<%skin_variant%>',
+
+width                            : '<%width%>',
+content_css                      : '<%content_css%>',
+convert_fonts_to_spans           : true,
+dialog_type                      : '<%dialog_type%>',
+entity_encoding                  : 'raw',
+file_browser_callback            : '<%file_browser_callback%>',
+force_p_newlines                 : <%force_p_newlines%>,
+force_br_newlines                : <%force_br_newlines%>,
+forced_root_block                : '<%forced_root_block%>',
+popup_css_add                    : '<%popup_css_add%>',
+
+document_base_url                : '<%document_base_url%>',
+relative_urls                    : <%relative_urls%>,
+remove_script_host               : <%remove_script_host%>,
+convert_urls                     : <%convert_urls%>,
+
+plugins                          : '<%plugins%>',
+theme_advanced_buttons1          : '<%theme_advanced_buttons1%>',
+theme_advanced_buttons2          : '<%theme_advanced_buttons2%>',
+theme_advanced_buttons3          : '<%theme_advanced_buttons3%>',
+theme_advanced_buttons4          : '<%theme_advanced_buttons4%>',
+theme_advanced_toolbar_location  : 'top',
+theme_advanced_toolbar_align     : 'left',
+theme_advanced_path_location     : 'bottom',
+theme_advanced_resize_horizontal : false,
+theme_advanced_resizing          : true,
+theme_advanced_blockformats      : 'h3,h4,h5,h6,p,dt,dd,div,pre',
+theme_advanced_font_sizes        : '80%,90%,100%,120%,140%,160%,180%,220%,260%,320%,400%,500%,700%',
+theme_advanced_styles            : '<%theme_advanced_styles%>',
+extended_valid_elements          : '<%extended_valid_elements%>',
+accessibility_warnings           : <%accessibility_warnings%>,
+<%custom_init%>
+});
