@@ -1,48 +1,75 @@
 @import "customcss.php";
 
-body.mceContentBody, td, th
-{
-	font-family: Verdana, Arial, sans-serif;
-	font-size:12px;
-	font-style: normal;
-	text-align: left;
-	line-height: 1.5;
+/* body.mceContentBody {margin:8px;text-align:left;} */
+
+body,
+td,
+th,
+pre {
+	font-size  : 12px;
+	font-style : normal;
 }
 
-body.mceContentBody {
-	color: #333333;
-	background-color: #FFFFFF;
+body {
+	line-height          : 1.5;
+	color                : #333333;
+	background-color     : #FFFFFF;
 	background-attachment: fixed;
-	background-repeat:repeat-x !important;
-	background-image : url(textareabg.gif) !important;
-	}
-
-h1,h2,h3,h4,h5,h6 {	letter-spacing:2px;}
-
-body.mceContentBody ul {
-	margin:0 0 0.5em 20px;
-	padding:0;
-/*	list-style-type:square;*/
-/*	list-style-image:url(bullet.gif);*/
+	background-repeat:repeat-x;
+	background-image     : url(textareabg.gif);
+	text-align           : left;
+	margin:8px;
 }
 
-body.mceContentBody ol {
-	margin:0 0 0.5em 18px;
-	padding:0;
-	color:black;
-	list-style-image:none;
+pre {
+	color                : #555555;
 }
 
-body.mceContentBody ol li {margin-left:7px;}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color         : #111111;
+	letter-spacing: 1px;
+}
 
-body.mceContentBody blockquote {
-	padding-left:7px;
-	margin-left:3px;
-	background-color:#f3f3f3;
+h4,
+h5,
+h6 {
+	font-size  : 12px;
+}
+ul {
+	line-height     : 1.5;
+	margin          : 0 0 0.5em 20px;
+	padding         : 0;
+}
+
+ol {
+	line-height     : 1.5;
+	margin          : 0 0 0.5em 18px;
+	padding         : 0;
+	color           : black;
+}
+
+ol li {margin-left:7px;}
+
+blockquote {
+	padding-left    : 7px;
+	margin-left     : 3px;
+	background-color: #fcfcfc;
 }
 
 table {margin-bottom:8px;}
-td,th {padding:4px !important;}
-/* th {color:#1d5eb3 !important;background-color:#f5f5f5;}*/
+td,th {padding:4px}
+th    {background-color:#fcfcfc;text-align:left;}
 
-a:hover {color: #cc0000;}
+a:hover {
+	color: #7fa2ff;
+}
+
+.justifyleft     {text-align:left;}
+.justifyright    {text-align:right;}
+img.justifyleft  {float:left; margin-right:10px;margin-bottom:5px;}
+img.justifyright {float:right; margin-left:10px;margin-bottom:5px;}

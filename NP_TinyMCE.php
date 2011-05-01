@@ -20,7 +20,7 @@ var $memory_bconvertbreaks;
 
 	function getName()              {return 'NP_TinyMCE';}
 	function getURL()               {return 'http://plugins.nucleuscms.org/';}
-	function getVersion()           {return '3.3.4';}
+	function getVersion()           {return '3.4.2';}
 	function getMinNucleusVersion() {return 300;}
 	function getDescription()       {return _NP_TINYMCE01;	}
 	function supportsFeature($w)    { return ($w == 'SqlTablePrefix') ? 1 : 0; }
