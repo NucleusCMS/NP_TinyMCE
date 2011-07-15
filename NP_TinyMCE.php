@@ -20,7 +20,7 @@ var $memory_bconvertbreaks;
 
 	function getName()              {return 'NP_TinyMCE';}
 	function getURL()               {return 'http://plugins.nucleuscms.org/';}
-	function getVersion()           {return '3.4.2';}
+	function getVersion()           {return '3.4.2.r1';}
 	function getMinNucleusVersion() {return 300;}
 	function getDescription()       {return _NP_TINYMCE01;	}
 	function supportsFeature($w)    { return ($w == 'SqlTablePrefix') ? 1 : 0; }
@@ -97,7 +97,25 @@ var $memory_bconvertbreaks;
 		if (intval($mediaTocu->getVersion()) > 0) return $mediaTocu;
 		return false;
 	}
-
+	
+	/**
+	* Check NP_ImageManager
+	*/
+	function _checkImageManager()
+	{
+		global $manager,$member;
+		if (!$manager->pluginInstalled('NP_ImageManager'))
+		{
+			return false;
+		}
+		$imageManager =& $manager->getPlugin('NP_ImageManager');
+		if ($imageManager->getMemberOption($member->memberid, 'use_imagemanager') == 'yes' && $imageManager->getVersion() > 1.00)
+		{
+			return $imageManager;
+		}
+		return false;
+	}
+	
 	/**
 	  * Current member using TinyMCE Editor ?
 	  */
@@ -348,6 +366,13 @@ var $memory_bconvertbreaks;
 		return $result;
 	}
 	
+	function _get_fb_funcname()
+	{
+		if ($this->_checkImageManager() !== false) $func_name = 'myCustomFileBrowser';
+		else                                       $func_name = 'callFileBrowser';
+		return $func_name;
+	}
+	
 	function parse($contents)
 	{
 		global $CONF;
@@ -366,8 +391,7 @@ var $memory_bconvertbreaks;
 		$param['width'] = $this->getOption('textarea_width');
 		$param['content_css'] = $mce_url . 'style/style.css';
 		$param['dialog_type'] = $this->getOption('dialog_type');
-		$param['file_browser_callback'] = 'callFileBrowser';
-		
+		$param['file_browser_callback'] = $this->_get_fb_funcname();
 		$param['force_p_newlines'] =  ($enterkey_mode== 'p') ? 'true' : 'false';
 		$param['force_br_newlines'] = ($enterkey_mode== 'br') ? 'true' : 'false';
 		$param['forced_root_block'] = ($enterkey_mode== 'p') ? 'p' : '';
