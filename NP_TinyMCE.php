@@ -20,7 +20,7 @@ var $memory_bconvertbreaks;
 
 	function getName()              {return 'NP_TinyMCE';}
 	function getURL()               {return 'http://plugins.nucleuscms.org/';}
-	function getVersion()           {return '3.4.4';}
+	function getVersion()           {return '3.4.7';}
 	function getMinNucleusVersion() {return 300;}
 	function getDescription()       {return _NP_TINYMCE01;	}
 	function supportsFeature($w)    { return ($w == 'SqlTablePrefix') ? 1 : 0; }
@@ -56,7 +56,8 @@ var $memory_bconvertbreaks;
 	function unInstall()
 	{
 		// restore to standard settings
-		sql_query('UPDATE ' . sql_table('config') . " SET value = '2' WHERE name = 'DisableJSTools'");
+		$tbl_config = sql_table('config');
+		sql_query("UPDATE {$tbl_config} SET value='2' WHERE name='DisableJSTools'");
 	}
 
 	function init()
@@ -68,18 +69,21 @@ var $memory_bconvertbreaks;
 		if(strpos($currenturl, $adminurl['path'])!==0) {return;}
 		$language = preg_replace('@\\|/@', '', getLanguageName());
 		$langDir  = $this->getDirectory() . 'language/';
-		if (! @include_once($langDir . $language . '.php')) {include_once($langDir . 'english.php');}
+		if (! @include_once("{$langDir}{$language}.php"))
+		{
+			include_once("{$langDir}english.php");
+		}
 	}
 	
 	function event_PreSkinParse(&$data)
 	{
 		if($this->getOption('include_css')!=='yes') return;
 		$contents = &$data['contents'];
-		$css  = '<style type="text/css">' . PHP_EOL;
-		$css .= '<!--' . PHP_EOL;
-		$css .= $this->getOption('custom_css') . PHP_EOL;
-		$css .= '-->' . PHP_EOL;
-		$css .= '</style>' . PHP_EOL;
+		$css  = '<style type="text/css">' . "\n";
+		$css .= '<!--' . "\n";
+		$css .= $this->getOption('custom_css') . "\n";
+		$css .= '-->' . "\n";
+		$css .= '</style>' . "\n";
 		$contents = str_replace('</head>', $css . '</head>', $contents);
 	}
 	
@@ -95,7 +99,7 @@ var $memory_bconvertbreaks;
 		}
 		$mediaTocu =& $manager->getPlugin('NP_Mediatocu');
 		if (intval($mediaTocu->getVersion()) > 0) return $mediaTocu;
-		return false;
+		else return false;
 	}
 	
 	/**
@@ -113,7 +117,7 @@ var $memory_bconvertbreaks;
 		{
 			return $imageManager;
 		}
-		return false;
+		else return false;
 	}
 	
 	/**
@@ -333,7 +337,7 @@ var $memory_bconvertbreaks;
 		$str[] = '			margin : 0;';
 		$str[] = '		}';
 		$str[] = '	</style>';
-		return join(PHP_EOL, $str) . PHP_EOL;
+		return join("\n", $str) . "\n";
 	}
 	
 	function renderBootStrap($option_use_tgzip)
@@ -341,13 +345,13 @@ var $memory_bconvertbreaks;
 		global $CONF;
 		$mce_url = $this->getAdminURL();
 		$filename = ($this->getOption('use_tgzip') == 'yes') ? 'tiny_mce_gzip.js': 'tiny_mce.js';
-		$str  = '	<script type="text/javascript" src="' . $mce_url . 'mce_core/tiny_mce/' . $filename . '"></script>' . PHP_EOL;
-		$str .= '	<script type="text/javascript" src="' . $mce_url . 'parse.php?file=file_browser_callback.js"></script>' . PHP_EOL;
+		$str  = '	<script type="text/javascript" src="' . $mce_url . 'mce_core/tiny_mce/' . $filename . '"></script>' . "\n";
+		$str .= '	<script type="text/javascript" src="' . $mce_url . 'parse.php?file=file_browser_callback.js"></script>' . "\n";
 		if ($this->getOption('use_tgzip') == 'yes')
 		{
-			$str .= '	<script type="text/javascript" src="' . $mce_url . 'parse.php?file=mce_gz_init.js"></script>' . PHP_EOL;
+			$str .= '	<script type="text/javascript" src="' . $mce_url . 'parse.php?file=mce_gz_init.js"></script>' . "\n";
 		}
-		$str .= '	<script type="text/javascript" src="' . $mce_url . 'parse.php?file=mce_init.js"></script>' . PHP_EOL;
+		$str .= '	<script type="text/javascript" src="' . $mce_url . 'parse.php?file=mce_init.js"></script>' . "\n";
 		return $str;
 	}
 	
@@ -361,7 +365,7 @@ var $memory_bconvertbreaks;
 			$str =  trim($str);
 			$str = rtrim($str);
 			if (preg_match('@^[/#\*]@', $str)) continue;
-			$result .= $str . PHP_EOL;
+			$result .= $str . "\n";
 		}
 		return $result;
 	}
