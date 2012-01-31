@@ -6,9 +6,9 @@ define('_NP_TINYMCE_TOOLBAR_2_MEMBERCUSTOM_DEAULTVALUE',   '');
 define('_NP_TINYMCE_TOOLBAR_3_MEMBERCUSTOM_DEAULTVALUE',   '');
 define('_NP_TINYMCE_TOOLBAR_4_MEMBERCUSTOM_DEAULTVALUE',   '');
 
-define('_NP_TINYMCE_PLUGIN_DEAULTVALUE',   'autolink,clearfloat,save,advlist,style,fullscreen,advimage,paste,advlink,media,contextmenu,table');
+define('_NP_TINYMCE_PLUGIN_DEAULTVALUE',   'autolink,save,advlist,style,fullscreen,advimage,paste,advlink,media,contextmenu,table');
 define('_NP_TINYMCE_TOOLBAR_1_DEAULTVALUE',   'save,undo,redo,|,bold,italic,forecolor,backcolor,strikethrough,formatselect,fontsizeselect,pastetext,pasteword,code,|,fullscreen,help');
-define('_NP_TINYMCE_TOOLBAR_2_DEAULTVALUE',   'image,media,link,unlink,anchor,|,justifyleft,justifycenter,justifyright,clearfloat,|,bullist,numlist,|,blockquote,outdent,indent,|,table,hr,|,styleprops,removeformat');
+define('_NP_TINYMCE_TOOLBAR_2_DEAULTVALUE',   'image,media,link,unlink,anchor,|,justifyleft,justifycenter,justifyright,|,bullist,numlist,|,blockquote,outdent,indent,|,table,hr,|,styleprops,removeformat');
 
 define('_NP_TINYMCE_CUSTOM_CSS_DEFAULTVALUE',   '/* sample */
 .justifyleft  {float:left;  margin-right:10px;margin-bottom:5px;}
