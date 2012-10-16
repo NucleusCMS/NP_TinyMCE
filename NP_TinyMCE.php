@@ -90,7 +90,7 @@ var $memory_bconvertbreaks;
 	/**
 	  * Check NP_Mediatocu
 	  */
-	function _checkMediatocu()
+	private function _checkMediatocu()
 	{
 		global $manager;
 		if (!$manager->pluginInstalled('NP_Mediatocu'))
@@ -105,7 +105,7 @@ var $memory_bconvertbreaks;
 	/**
 	* Check NP_ImageManager
 	*/
-	function _checkImageManager()
+	private function _checkImageManager()
 	{
 		global $manager,$member;
 		if (!$manager->pluginInstalled('NP_ImageManager'))
@@ -123,7 +123,7 @@ var $memory_bconvertbreaks;
 	/**
 	  * Current member using TinyMCE Editor ?
 	  */
-	function _memberCheck($aid)
+	private function _memberCheck($aid)
 	{
 		if ($this->getMemberOption($aid, 'use_tinymce') == 'yes')
 		{
@@ -138,7 +138,7 @@ var $memory_bconvertbreaks;
 	/**
 	  * Add extra header
 	  */
-	function _addExtraHead(&$extrahead)
+	private function _addExtraHead(&$extrahead)
 	{
 		global $CONF, $itemid, $member;
 		
@@ -205,7 +205,7 @@ var $memory_bconvertbreaks;
 		}
 	}
 
-	function _suspendConvertBreaks(&$data)
+	private function _suspendConvertBreaks(&$data)
 	{
 		global $manager;
 		$blogid = intval($data['blog']->blogid);
@@ -221,7 +221,7 @@ var $memory_bconvertbreaks;
 		}
 	}
 
-	function _restoreConvertBreaks(&$data)
+	private function _restoreConvertBreaks(&$data)
 	{
 		global $manager;
 		$itemid = intval($data['itemid']);
@@ -254,7 +254,7 @@ var $memory_bconvertbreaks;
 	function event_PostAddItem(&$data)    { $this->_restoreConvertBreaks($data); }
 	function event_PostUpdateItem(&$data) { $this->_restoreConvertBreaks($data);}
 
-	function _delP (&$item)
+	private function _delP (&$item)
 	{
 			$pattern = "@<p>&nbsp;</p>@";
 			$item['body'] = preg_replace(preg_quote($pattern), '', $item['body']);
@@ -372,7 +372,7 @@ var $memory_bconvertbreaks;
 		return $result;
 	}
 	
-	function _get_fb_funcname()
+	private function _get_fb_funcname()
 	{
 		if ($this->_checkImageManager() !== false) $func_name = 'myCustomFileBrowser';
 		else                                       $func_name = 'callFileBrowser';
