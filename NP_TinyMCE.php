@@ -67,7 +67,7 @@ var $memory_bconvertbreaks;
 		$adminurl   = parse_url($CONF['AdminURL']);
 		$currenturl = getenv('SCRIPT_NAME');
 		if(strpos($currenturl, $adminurl['path'])!==0) {return;}
-		$language = preg_replace('@\\|/@', '', getLanguageName());
+		$language = str_replace(array('\\','/'), '', getLanguageName());
 		$langDir  = $this->getDirectory() . 'language/';
 		if (! @include_once("{$langDir}{$language}.php"))
 		{
