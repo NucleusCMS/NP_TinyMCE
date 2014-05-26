@@ -19,4 +19,5 @@ $file = file_get_contents('inc/' . $_GET['file']);
 
 global $manager;
 $mce = $manager->getPlugin('NP_TinyMCE');
+header('Content-Type: application/x-javascript');
 $mce->parse($file);
