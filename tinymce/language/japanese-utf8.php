@@ -19,7 +19,6 @@ define('_NP_TINYMCE_ENTERKEY_MODE_VALUE',   '<p></p>で囲む(Shift＋Enterで�
 define('_NP_TINYMCE_DIALOG_TYPE_LABEL',   'ポップアップウィンドウの開き方');
 define('_NP_TINYMCE04',       '利用できるhtmlタグ');
 define('_NP_TINYMCE04_VALUE', '無難なタグのみを許可|safety|全てのタグを許可|unlimited');
-define('_NP_TINYMCE05',       'GZip圧縮を使用しUIを一括出力');
 define('_NP_TINYMCE06',       '画像やリンクなどのパス記述');
 define('_NP_TINYMCE07',       'alt属性の記述を促す');
 define('_NP_TINYMCE08',       'ツールバーのスキン');

@@ -88,12 +88,6 @@ $this->createOption(
 	'_NP_TINYMCE04_VALUE'
 );
 $this->createOption(
-	'use_tgzip',
-	'_NP_TINYMCE05',
-	'yesno',
-	'no'
-);
-$this->createOption(
 	'path_style',
 	'_NP_TINYMCE06',
 	'select',

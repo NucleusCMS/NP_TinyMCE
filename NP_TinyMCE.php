@@ -340,19 +340,13 @@ var $memory_bconvertbreaks;
 		return join("\n", $str) . "\n";
 	}
 	
-	function renderBootStrap($option_use_tgzip)
+	function renderBootStrap()
 	{
 		global $CONF;
 		$mce_url = $this->getAdminURL();
-		$filename = ($this->getOption('use_tgzip') == 'yes') ? 'tiny_mce_gzip.js': 'tiny_mce.js';
 		$version = str_replace('.','',$this->getVersion());
-		$filename .= "?{$version}";
-		$str  = '	<script type="text/javascript" src="' . $mce_url . 'mce_core/tiny_mce/' . $filename . '"></script>' . "\n";
+		$str  = '	<script type="text/javascript" src="' . $mce_url . 'mce_core/tiny_mce/tiny_mce.js"></script>' . "\n";
 		$str .= '	<script type="text/javascript" src="' . $mce_url . 'parse.php?file=file_browser_callback.js"></script>' . "\n";
-		if ($this->getOption('use_tgzip') == 'yes')
-		{
-			$str .= '	<script type="text/javascript" src="' . $mce_url . 'parse.php?file=mce_gz_init.js"></script>' . "\n";
-		}
 		$str .= '	<script type="text/javascript" src="' . $mce_url . 'parse.php?file=mce_init.js&' . $version . '"></script>' . "\n";
 		return $str;
 	}

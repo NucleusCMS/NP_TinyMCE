@@ -19,7 +19,6 @@ define('_NP_TINYMCE_ENTERKEY_MODE_VALUE',   '<p></p> (BR, Shift+Enter)|p|insert 
 define('_NP_TINYMCE_DIALOG_TYPE_LABEL',   'Popup dialog style');
 define('_NP_TINYMCE04',   'Extended valid elements. @*[*] unlimited');
 define('_NP_TINYMCE04_VALUE', 'Limmited by safe html tags|safety|Unlimited|unlimited');
-define('_NP_TINYMCE05',   'Use TinyMCE GZip compression (experimental).');
 define('_NP_TINYMCE06',   'The link is put by the relative path description from the document route.');
 define('_NP_TINYMCE07',   'some accessibility warnings will be presented to the user if they miss specifying that information.');
 define('_NP_TINYMCE08',   'Toolbar skin select');
