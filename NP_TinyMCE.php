@@ -444,20 +444,12 @@ var $memory_bconvertbreaks;
 		{
 			$param['FileBrowserURL'] = $this->getAdminURL() . 'filemanager/mediaphp/media.php';
 		}
-		$delim = '(<%|%>)';
-		$pieces = preg_split('/'.$delim.'/',$contents);
-
-		$maxidx = sizeof($pieces);
-		for ($idx = 0; $idx < $maxidx; $idx++)
+		foreach($param as $k=>$v)
 		{
-			echo $pieces[$idx];
-			$idx++;
-			if ($idx < $maxidx)
-			{
-				$name = $pieces[$idx];
-				echo $param[$name];
-			}
+			$k = "<%{$k}%>";
+			$contents = str_replace($k,$v,$contents);
 		}
+		echo $contents;
 	}
 	
 	function get_mce_option()

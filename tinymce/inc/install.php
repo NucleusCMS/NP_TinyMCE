@@ -191,4 +191,3 @@ sql_query(
 	. " SET   value = '1'"
 	. " WHERE name  = 'DisableJSTools'"
 );
-?>
