@@ -182,12 +182,3 @@ $this->createItemOption(
 	'yesno',
 	'yes'
 );
-
-
-// disable the default javascript editbar that comes with nucleus
-sql_query(
-	"UPDATE "
-	. sql_table('config')
-	. " SET   value = '1'"
-	. " WHERE name  = 'DisableJSTools'"
-);

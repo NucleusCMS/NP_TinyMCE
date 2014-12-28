@@ -53,13 +53,6 @@ var $memory_bconvertbreaks;
 		require($inc_dir . 'install.php');
 	}
 
-	function unInstall()
-	{
-		// restore to standard settings
-		$tbl_config = sql_table('config');
-		sql_query("UPDATE {$tbl_config} SET value='2' WHERE name='DisableJSTools'");
-	}
-
 	function init()
 	{
 		// include language file for this plugin
@@ -147,10 +140,6 @@ var $memory_bconvertbreaks;
 			$CONF['DisableJsTools'] = 1; // overrule simple global settings
 			$extrahead .= $this->renderCSS();
 			$extrahead .= $this->renderBootStrap();
-		}
-		else
-		{
-			$CONF['DisableJsTools'] = 2;
 		}
 	}
 	
