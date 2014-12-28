@@ -53,8 +53,8 @@ $teams = nucleus_mysql_query($query);
 if (nucleus_mysql_num_rows($teams) == 0)
 	media_doError(_ERROR_DISALLOWEDUPLOAD);
 } else {
-$teams = mysql_query($query);
-if (mysql_num_rows($teams) == 0)
+$teams = sql_query($query);
+if (sql_num_rows($teams) == 0)
 	media_doError(_ERROR_DISALLOWEDUPLOAD);
 }
 
@@ -336,7 +336,7 @@ function media_upload() {
 	$ok = 0;
 	$allowedtypes = explode (',', $CONF['AllowedTypes']);
 	foreach ( $allowedtypes as $type )
-		if (eregi("\." .$type. "$",$filename)) $ok = 1;
+		if (preg_match("#\." .$type. "$#i",$filename)) $ok = 1;
 	if (!$ok) media_doError(_ERROR_BADFILETYPE);
 
 	if (!is_uploaded_file($filetempname))
