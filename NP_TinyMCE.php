@@ -20,14 +20,14 @@ var $memory_bconvertbreaks;
 
 	function getName()              {return 'NP_TinyMCE';}
 	function getURL()               {return 'http://plugins.nucleuscms.org/';}
-	function getVersion()           {return '3.5.11';}
+	function getVersion()           {return '3.5.12';}
 	function getMinNucleusVersion() {return 300;}
 	function getDescription()       {return _NP_TINYMCE01;	}
 	function supportsFeature($w)    { return ($w == 'SqlTablePrefix') ? 1 : 0; }
 
 	function getAuthor()
 	{
-		return 'karma | roel | eph | kg | nakahara21 | dcw-niwa | shizuki | Cacher | ftruscot | yama.kyms';
+		return 'karma | roel | eph | kg | nakahara21 | dcw-niwa | shizuki | Cacher | ftruscot | yama';
 	}
 
 	function getEventList()
