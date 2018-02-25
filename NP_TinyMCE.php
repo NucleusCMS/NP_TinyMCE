@@ -225,7 +225,7 @@ var $memory_bconvertbreaks;
 
 	function contributeTinymceContent(&$data)
 	{
-		global $member;
+		global $CONF, $member;
 		if ( (cookieVar($CONF['CookiePrefix'] . 'loginkey') )
 		  && ($this->_memberCheck($member->getID()) == true) )
 		{
