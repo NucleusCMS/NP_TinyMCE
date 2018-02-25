@@ -154,7 +154,7 @@ var $memory_bconvertbreaks;
 
 	function event_AdminPrePageHead(&$data) 
 	{
-		global $member, $blogid, $manager;
+		global $manager;
 		$action = $data['action'];
 		
 		$useEditor = false;
@@ -331,7 +331,6 @@ var $memory_bconvertbreaks;
 	
 	function renderBootStrap()
 	{
-		global $CONF;
 		$mce_url = $this->getAdminURL();
 		$version = str_replace('.','',$this->getVersion());
 		$str  = '	<script type="text/javascript" src="' . $mce_url . 'mce_core/tiny_mce/tiny_mce.js"></script>' . "\n";
