@@ -17,7 +17,7 @@ class NP_TinyMCE extends NucleusPlugin
 {
 
     public $memory_bconvertbreaks;
-
+    public $enabled;
 
 	function getName()              {return 'NP_TinyMCE';}
 	function getURL()               {return 'http://plugins.nucleuscms.org/';}
@@ -58,6 +58,7 @@ class NP_TinyMCE extends NucleusPlugin
 	{
 		// include language file for this plugin
 		global $CONF;
+		$this->enabled = true;
 		$adminurl   = parse_url($CONF['AdminURL']);
 		$currenturl = getenv('SCRIPT_NAME');
 		if(strpos($currenturl, $adminurl['path'])!==0) {return;}
@@ -136,12 +137,13 @@ class NP_TinyMCE extends NucleusPlugin
 	{
 		global $CONF, $itemid, $member;
 		
-		if ( ($this->_memberCheck($member->id) == true) and ($this->getItemOption($itemid, 'use_tinymce')=='yes'))
-		{
-			$CONF['DisableJsTools'] = 1; // overrule simple global settings
-			$extrahead .= $this->renderCSS();
-			$extrahead .= $this->renderBootStrap();
-		}
+		if(!$this->_memberCheck($member->id))                    return;
+		if($this->getItemOption($itemid, 'use_tinymce')!=='yes') return;
+		if(!$this->enabled)                                      return;
+		
+		$CONF['DisableJsTools'] = 1; // overrule simple global settings
+		$extrahead .= $this->renderCSS();
+		$extrahead .= $this->renderBootStrap();
 	}
 	
 	/**
