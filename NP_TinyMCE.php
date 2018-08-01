@@ -166,7 +166,6 @@ var $memory_bconvertbreaks;
 			$manager->notify('EditorAdminPrePageHead', $info);
 		} 
 
-		//if (($action != 'createitem') && ($action != 'itemedit') && !($action == 'plugin_MultiLanguage' && requestVar('showlist') == 'edititem')) {
 		if (($action != 'createitem') && ($action != 'itemedit') && !$useEditor) return;
 		
 		$this->_addExtraHead($data['extrahead']);
@@ -270,18 +269,19 @@ var $memory_bconvertbreaks;
 	
 	function event_PrePluginOptionsEdit($data)
 	{
-		if ($data['plugid'] === $this->getID())
+		if(!isset($data['plugid'])) return;
+		
+		if ($data['plugid'] != $this->getID()) return;
+		
+		foreach($data['options'] as $key => $value)
 		{
-			foreach($data['options'] as $key => $value)
+			if (defined($value['description']))
 			{
-				if (defined($value['description']))
-				{
-					$data['options'][$key]['description'] = constant($value['description']);
-				}
-				if (!strcmp($value['type'], 'select') && defined($value['typeinfo']))
-				{
-					$data['options'][$key]['typeinfo'] = constant($value['typeinfo']);
-				}
+				$data['options'][$key]['description'] = constant($value['description']);
+			}
+			if (!strcmp($value['type'], 'select') && defined($value['typeinfo']))
+			{
+				$data['options'][$key]['typeinfo'] = constant($value['typeinfo']);
 			}
 		}
 	}
