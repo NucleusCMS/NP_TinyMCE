@@ -256,6 +256,10 @@ class NP_TinyMCE extends NucleusPlugin
 	{
 		$src  = array('<%',     '%>',    '<!%',     '%!>');
 		$dist = array('@&lt;%', '%&gt;', '@&lt;!%', '%!&gt;');
+		if(strpos($data['item']['body'].' '.$data['item']['more'], '<!%itemformmail%!>') !== false) {
+			$this->enabled = false;
+			return;
+		}
 		$data['item']['body'] = str_replace($src, $dist, $data['item']['body']);
 		$data['item']['more'] = str_replace($src, $dist, $data['item']['more']);
 	}
