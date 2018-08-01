@@ -252,7 +252,7 @@ class NP_TinyMCE extends NucleusPlugin
 			$item['more'] = preg_replace(preg_quote($pattern), '', $item['more']);
 	}
 
-	function event_PrepareItemForEdit($data)
+	function event_PrepareItemForEdit(&$data)
 	{
 		$src  = array('<%',     '%>',    '<!%',     '%!>');
 		$dist = array('@&lt;%', '%&gt;', '@&lt;!%', '%!&gt;');
