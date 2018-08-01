@@ -16,7 +16,8 @@
 class NP_TinyMCE extends NucleusPlugin
 {
 
-var $memory_bconvertbreaks;
+    public $memory_bconvertbreaks;
+
 
 	function getName()              {return 'NP_TinyMCE';}
 	function getURL()               {return 'http://plugins.nucleuscms.org/';}
